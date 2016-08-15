@@ -1,0 +1,33 @@
+{
+  "name": "go-team-theme",
+  "version": "1.0.0",
+  "description": "The Go Team Win theme for Ghost.",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://wazts@github.com/wazts/go-team-theme.git"
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "go",
+    "team",
+    "win"
+  ],
+  "author": "Kyle Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wazts/go-team-theme/issues"
+  },
+  "homepage": "https://github.com/wazts/go-team-theme#readme",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-watchify": "^0.6.0",
+    "jquery": "^3.1.0"
+  }
+}

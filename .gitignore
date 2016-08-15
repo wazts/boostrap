@@ -1,0 +1,10 @@
+# NPM
+node_modules/
+
+# SRC
+src/js/bootstrap.js
+src/js/jquery.js
+
+# Assets
+assets/css/style.css
+assets/js/app.js
