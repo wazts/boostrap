@@ -6,86 +6,39 @@ the {body} of the default.hbs template, which contains our header/footer. }}
 {{! The big featured header on the homepage, with the site logo and description }}
 
 {{! The main content area on the homepage }}
-<main class="content" role="main">
-    {{! Get the featured posts }}
-    {{#get "posts" include="tags" filter="featured:true" limit="1"}}
-    {{#foreach posts limit="1"}}
-    <div class="row">
-        <div class="col-lg-12">
-            <article class="{{post_class}}">
-                <header class="post-header">
-                    <h2 class="post-title">
+<main class="content container" role="main">
+    <div class="article-list">
+        {{#foreach posts}}
+            <div class="row list-item">
+                {{#if image}}
+                    <div class="col-md-4">
+                        <img class="list-image" src="{{image}}" title= {{title}} />
+                    </div>
+                    <div class="col-md-8">
+                {{else}}
+                    <div class="col-md-12">
+                {{/if}}
+                    <article class="{{post_class}}">
+                        <header class="post-header">
+                            <h2 class="post-title">
                         <a href="{{url}}">{{{title}}}</a>
                     </h2>
-                    <span class="post-meta text-muted">
+                            <span class="post-meta text-muted">
                         <time datatime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
                         {{#if tags}} on {{tags}}{{/if}}
                     </span>
-                </header>
-                <section class="post-excerpt">
-                    <p>{{excerpt}}&hellip;</p>
-                </section>
-            </article>
-        </div>
-    </div>
-    {{/foreach}}
-    {{/get}}
-    {{! Each post will be output using this markup }}
-    <div class="row">
-        {{!-- {{#get include="tags, author" filter="tags:videos"}} --}}
-        {{#foreach posts limit="4"}}
-        <div class="col-lg-3">
-            <article class="{{post_class}}">
-                <header class="post-header">
-                    <h2 class="post-title">
-                        <a href="{{url}}">{{{title}}}</a>
-                    </h2>
-                    <span class="post-meta text-muted">
-                        <time datatime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
-                        {{#if tags}} on {{tags}}{{/if}}
-                    </span>
-                </header>
-                <section class="post-excerpt">
-                    <p>{{excerpt}}&hellip;</p>
-                </section>
-            </article>
-        </div>
-        {{else}}
-        No videos found.
-        {{/foreach}}
-        {{!-- {{/get}} --}}
-    </div>
-    {{#foreach posts}}
-
-    <div class="row">
-        <div class="col-lg-4">
-            {{#if image}}
-                <img class="img-responsive" src="{{image}}" title={{title}} />
-            {{else}}
-                <img class="img-responsive" src="{{asset "img/no-header.jpg"}}" title={{title}} />
-            {{/if}}
-        </div>
-        <div class="col-lg-8">
-            <article class="{{post_class}}">
-                <header class="post-header">
-                    <h2 class="post-title">
-                        <a href="{{url}}">{{{title}}}</a>
-                    </h2>
-                    <span class="post-meta text-muted">
-                        <time datatime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
-                        {{#if tags}} on {{tags}}{{/if}}
-                    </span>
-                </header>
-                <section class="post-excerpt">
-                    <p>{{excerpt}}&hellip;</p>
-                </section>
-            </article>
-        </div>
+                        </header>
+                        <section class="post-excerpt">
+                            <p>{{excerpt}}&hellip;</p>
+                        </section>
+                    </article>
+            </div>
 
     </div>
 
     {{/foreach}}
+    </div>
     {{!! After all the posts, we have the previous/next pagination links }}
-    {{!-- {{pagination}} --}}
+    {{!-- {{pagination}}--}}
 
 </main>

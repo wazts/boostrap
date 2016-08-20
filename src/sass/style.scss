@@ -1,4 +1,58 @@
 @import "bootstrap";
+@import "./mixins";
+
+
+// -----------------------------------------------------------------------------
+// --- Tags ---
+// -----------------------------------------------------------------------------
 body{
     font-size: 18px;
+}
+
+// -----------------------------------------------------------------------------
+// --- Navigation
+// -----------------------------------------------------------------------------
+.navbar {
+    margin-bottom: 0;
+}
+// -----------------------------------------------------------------------------
+// --- Listing
+// -----------------------------------------------------------------------------
+.article-list {
+    .list-item {
+        position: relative;
+        margin-bottom: 2rem;
+        
+        .post-title {
+            margin-top: 0;
+        }
+        .list-image {
+            @include img-responsive;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// --- Posts ---
+// -----------------------------------------------------------------------------
+.post-header{
+    background-position: center;
+    background-size: cover;
+    
+    @media screen and (min-width: $screen-desktop) {
+        height: 50rem;
+    }
+    
+    @media screen and (max-width: $screen-desktop) {
+        height: 25rem;
+    }
+}
+.post {
+    .post-meta {
+        .author-image {
+            @include img-responsive;
+            width: 100%;
+            height: auto;
+        }
+    }
 }
