@@ -10,13 +10,13 @@
 
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="320" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {{! Styles'n'Scripts }}
-        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" /> {{! insert font link here
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400" /> }} {{! Ghost outputs important style and meta data with this tag }} {{ghost_head}}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" /> {{! Ghost outputs important style and meta data with this tag }} {{ghost_head}}
     </head>
 
     <body class="{{body_class}}">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-goteamwin">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -46,22 +46,38 @@
 
         {{! Everything else gets inserted here }} {{{body}}}
 
-        <div class="row">
-            <div class="col-lg-12">
-                <footer class="site-footer">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <a href="{{@blog.url}}/rss/">Subscribe</a>
-                            <div class="text-muted">
-                                <section class="copyright"><a href="/">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-                            </div>
-                        </div>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row footer-items">
+                    <div class="col-md-3">
+                        <h4>{{@blog.title}}</h4>
+                        <ul class="footer-nav">
+                            {{#foreach @blog.navigation}}
+                            <li><a href="{{url absolute=" true "}}">{{label}}</a></li>
+                        {{/foreach}}
+                        <li><a href="{{@blog.url}}/rss/">RSS</a></li>
+                        </ul>
                     </div>
-                </footer>
+                    <div class="col-md-3">
+                        <h4>Follow</h4>
+                        <ul class="footer-social">
+                            <li><a href="{{@blog.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+                            <li><a href="{{@blog.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <section class="copyright"><a href="/">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
+                </div>
             </div>
-        </div>
-
-
+        </footer>
         {{! Ghost outputs important scripts and data with this tag }} {{ghost_foot}} {{! The main JavaScript file for Boo }}
         <script type="text/javascript" src="/assets/js/app.js"></script>
 

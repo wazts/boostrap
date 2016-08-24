@@ -2,7 +2,11 @@
   "name": "go-team-theme",
   "version": "1.0.0",
   "description": "The Go Team Win theme for Ghost.",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "gulp styles",
+    "postinstall": "gulp jsMove",
+    "postinstall": "gulp browserify"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://wazts@github.com/wazts/go-team-theme.git"
@@ -20,7 +24,7 @@
     "url": "https://github.com/wazts/go-team-theme/issues"
   },
   "homepage": "https://github.com/wazts/go-team-theme#readme",
-  "devDependencies": {
+  "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",
