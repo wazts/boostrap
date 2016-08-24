@@ -15,10 +15,10 @@ var npmJSFiles = 'node_modules'
 var jsFiles = [
     'bootstrap-sass/assets/javascripts/bootstrap.js',
     'jquery/dist/jquery.js'
-    ];
+];
 
 // Append the bower directory
-jsFiles = jsFiles.map(function(obj){
+jsFiles = jsFiles.map(function(obj) {
     return npmJSFiles + '/' + obj;
 });
 
@@ -27,14 +27,14 @@ jsFiles = jsFiles.map(function(obj){
  */
 gulp.task('styles', function() {
     return gulp.src('src/sass/**/*.scss')
-            .pipe(sass({
+        .pipe(sass({
                 includePaths: ['node_modules/bootstrap-sass/assets/stylesheets']
-                })
-              .on('error', sass.logError))
-            .pipe(gulp.dest(cssDest))
-            //.pipe(rename({suffix: '.min'}))
-            //.pipe(minifycss())
-            //.pipe(gulp.dest(destFolder + 'stylesheets'));
+            })
+            .on('error', sass.logError))
+        .pipe(gulp.dest(cssDest))
+        //.pipe(rename({suffix: '.min'}))
+        //.pipe(minifycss())
+        //.pipe(gulp.dest(destFolder + 'stylesheets'));
 });
 
 /**
@@ -55,21 +55,26 @@ gulp.task('jsMove', function() {
 /**
  * Bundle the JS
  */
- gulp.task('browserify', function() {
+gulp.task('browserify', function() {
     // Single entry point to browserify
     gulp.src('src/js/app.js')
         .pipe(browserify({
-          insertGlobals : true,
-          debug : !gulp.env.production
+            insertGlobals: true,
+            debug: !gulp.env.production
         }))
         .pipe(gulp.dest('assets/js'))
 });
 
 /**
- * Default task
+ * Watch task
  */
-gulp.task('default', ['styles', 'jsMove', 'browserify'], function() {
-    gulp.watch('src/sass/**/*.scss',['styles']);
+gulp.task('watch', ['styles', 'jsMove', 'browserify'], function() {
+    gulp.watch('src/sass/**/*.scss', ['styles']);
     //gulp.watch('node_modules/**/*.js', ['jsProcess']);
     gulp.watch('src/js/**/*.js', ['browserify']);
 });
+
+/**
+ * Default task
+ */
+gulp.task('default', ['styles', 'jsMove', 'browserify']);
