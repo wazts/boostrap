@@ -218,6 +218,12 @@ body{
         }
     }
     
+    .post-content {
+        img {
+            @extend .img-responsive;
+        }
+    }
+    
     
     .post-footer {
         margin-top: 2rem;
