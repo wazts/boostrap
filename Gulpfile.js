@@ -3,7 +3,7 @@
 // IMPORTS
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    minifycss = require('gulp-minify-css'),
+    cleanCSS = require('gulp-clean-css'),
     rename = require('gulp-rename'),
     browserify = require('gulp-browserify');
 
@@ -31,10 +31,8 @@ gulp.task('styles', function() {
                 includePaths: ['node_modules/bootstrap-sass/assets/stylesheets']
             })
             .on('error', sass.logError))
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest(cssDest))
-        //.pipe(rename({suffix: '.min'}))
-        //.pipe(minifycss())
-        //.pipe(gulp.dest(destFolder + 'stylesheets'));
 });
 
 /**
