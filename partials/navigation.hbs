@@ -3,7 +3,9 @@
     <li><a href="{{url}}">{{label}}</a></li>
     {{/foreach}}
 </ul>
+{{#@blog}}
 <ul class="nav navbar-nav navbar-right navbar-social">
-    <li><a href="{{@blog.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-    <li><a href="{{@blog.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+    <li><a href="{{twitter_url}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="{{facebook_url}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 </ul>
+{{/@blog}}
