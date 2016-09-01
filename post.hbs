@@ -2,7 +2,7 @@
 <main class="content" role="main">
     {{#post}}
         {{#has tag="videos" }}
-                {{!--None--}}
+            {{!--None--}}
             {{else}}
                 {{#if image}}
                     <header class="post-header-image" style="background-image: url('{{image}}')">
@@ -17,8 +17,9 @@
                         <h1 class="post-title page-header">{{title}}</h1>
                         <div class="row post-top-meta">
                             <div class="col-xs-6">
-                                <div class="post-time">
-                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time>
+                                <div class="post-meta text-muted">
+                                    {{#if author}}<span class="list-author">{{author}}</span> - {{/if}}
+                                    <time datatime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
                                 </div>
                             </div>
                             <div class="col-xs-6 post-share">
