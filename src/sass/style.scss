@@ -206,6 +206,12 @@ body{
         font-size: 1rem;
         font-style: italic;
         
+        .author {
+            a {
+                color: $color-text;
+            }
+        }
+        
         .post-share{
             text-align: right;
             ul {
